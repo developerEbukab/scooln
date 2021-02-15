@@ -1,0 +1,104 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.HeaderContainer{
+  // background-color: grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  text-transform: uppercase;
+
+  .Content{
+    width: 90%;
+    height: 7rem;
+    border-radius: 1000rem;
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 3rem;
+    box-shadow: 0 0 2rem darken($color: $color-white, $amount: 20);
+
+    .Search{
+      .FindSchool{
+        display: flex;
+        align-items: center;
+
+        .SearchBar{
+          margin-left: 1.5rem;
+          border-bottom: 1px solid grey;
+          padding-bottom: .3rem;
+          color: grey;
+
+          input{
+            border: 0 solid transparent;
+            
+            // background-color: red;
+            padding-left: 1rem;
+            width: 30rem;
+          }
+        }
+      }
+    }
+
+    .Logo{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      // background-color: #F7FAFC;
+      // height: 11rem;
+      // width: 11rem;
+      // border: 1rem solid #F7FAFC;
+      // background-color: $color-white;
+      border-radius: 1000rem;
+      // box-shadow: 0 0 1rem darken($color: $color-white, $amount: 10);
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .Links{
+      // text-transform: uppercase;
+      // font-size: 5rem;
+      font-weight: bold;
+
+      .Active{
+        color: $color-primary;
+        font-weight: bold;
+        // @include underline;
+      }
+
+      > *{
+        margin-left: 2.5rem;
+        transition: transform .2s;
+
+
+        &:hover{
+          // color: $color-primary;
+          font-weight: bold;
+          // @include underline;
+        }
+      }
+
+      .Auth{
+        background-color: $color-primary;
+        color: $color-white;
+        padding: 1.5rem 2rem;
+        border-radius: 1000rem;
+        transition: transform .2s;
+
+
+        &:hover{
+          background-color: darken($color: $color-primary, $amount: 10);
+          transform: scale(2);
+          // color: $color-white;
+        }
+      }
+    }
+  }
+}
