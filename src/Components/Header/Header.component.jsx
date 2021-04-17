@@ -1,30 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {HeaderContainer, Content, Search, Logo, Links, Auth, Active, FindSchool, SearchBar} from "./Header.module.scss"
+import { HeaderContainer, StyledLink, LogoContainer, CallToActionButton, SearchContainer } from './Header.styles';
+import { HEADER_LINKS } from './Header.uitls';
 
 const Header = () => {
   return (
-    <div className={HeaderContainer}>
-      <div className={Content}>
-        <div className={Search}>
-          <div className={FindSchool}>
-            <p>Find School</p>
-            <div className={SearchBar}>
-              <i class="fas fa-search"></i>
-              <input type="text"/>
-            </div>
-          </div>
-        </div>
-        <div className={Logo}>
-          <img src="https://img.icons8.com/bubbles/50/000000/school.png"/>
-        </div>
-        <div className={Links}>
-          <NavLink to="/1" activeClassName={Active}>Reviews</NavLink>
-          <NavLink to="/2" activeClassName={Active}>Find School</NavLink>
-          <NavLink className={Auth} to="/3" activeClassName={Active}>Sign In</NavLink>
-        </div>
+    <HeaderContainer>
+      <div>
+        {HEADER_LINKS.map(({to, name}, index) => <StyledLink to={to} activeClassName="ActiveLink" exact>{name}</StyledLink>)}
       </div>
-    </div>
+      <LogoContainer>
+        <p>SCOOLN</p>
+      </LogoContainer>
+      <div>
+        <SearchContainer>
+          <input type="text" placeholder="Search for school" />
+          {/* <i className="fas fa-search"></i> */}
+          <div className="SubmitButtonContainer">
+            <img src="https://img.icons8.com/metro/18/801936/long-arrow-right.png"/>
+          </div>
+        </SearchContainer>
+        <CallToActionButton to="/sign-in" activeClassName="ActiveCallToActionButton" exact>Sign In</CallToActionButton>
+      </div>
+    </HeaderContainer>
   );
 }
 
